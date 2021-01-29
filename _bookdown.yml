@@ -11,7 +11,7 @@ language:
 
 new_session: yes
 
-output_dir: "_book"
+output_dir: "_site"
 
 rmd_files: [
   "index.Rmd",
