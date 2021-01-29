@@ -12,5 +12,6 @@ Imports:
     remotes,
     sessioninfo,
     spacyr,
+    styler,
     reticulate
 Encoding: UTF-8

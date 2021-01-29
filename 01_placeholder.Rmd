@@ -49,15 +49,14 @@ txt <- "And now for something completely different."
 spacy_parse(txt)
 ```
 
-```{r}
+```{r eval=FALSE}
 reticulate::py_discover_config("keras")
 reticulate::py_discover_config("tensorflow")
 ```
 
 
-```{r eval=FALSE}
+```{r}
 library(keras)
-use_condaenv("spacy_condaenv")
 tf_config()
 
 dense_model <- keras_model_sequential() %>%
