@@ -1,0 +1,15 @@
+--- 
+site: bookdown::bookdown_site
+documentclass: krantz
+graphics: yes
+---
+
+# Preface
+
+Supervised machine learning
+
+```{block, type = "rmdnote"}
+Text data is important for many domains, from healthcare to marketing to the digital humanities, but specialized approaches are necessary to create features (predictors) for machine learning from language.
+```
+
+Natural language that we as speakers and/or writers use must be 

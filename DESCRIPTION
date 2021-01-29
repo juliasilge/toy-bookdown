@@ -1,0 +1,14 @@
+Type: Book
+Package: placeholder
+Title: Does not matter.
+Version: 0.0.1
+Imports: 
+    bookdown,
+    keras,
+    stopwords,
+    tidytext,
+    tidyverse,
+    remotes,
+    sessioninfo,
+    reticulate
+Encoding: UTF-8

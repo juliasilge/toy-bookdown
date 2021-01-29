@@ -1,0 +1,20 @@
+# placeholder
+
+```{r}
+1 + 2
+```
+
+
+Here is a plot!
+
+```{r}
+library(tidyverse)
+
+diamonds %>%
+  ggplot(aes(carat, price)) +
+  geom_hex() +
+  scale_fill_viridis_b() +
+  theme_minimal()
+
+```
+
