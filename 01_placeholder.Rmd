@@ -18,3 +18,8 @@ diamonds %>%
 
 ```
 
+
+```{block, type = "rmdwarning"}
+Diamonds are expensive!
+```
+
