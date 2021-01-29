@@ -51,8 +51,8 @@ jobs:
         run: |
           remotes::install_github('rstudio/reticulate')
           reticulate::install_miniconda()
-          reticulate::conda_create('r-reticulate', packages = 'python==3.6.9')
-          tensorflow::install_tensorflow(version='2.2')
+          reticulate::conda_create('r-tensorflow', packages = 'python==3.6.9')
+          tensorflow::install_tensorflow(envname = 'r-tensorflow')
           spacyr::spacy_install(prompt = FALSE)
         shell: Rscript {0}  
           

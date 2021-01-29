@@ -34,8 +34,8 @@ spacy_parse(txt)
 
 
 ```{r}
-library(reticulate)
-use_condaenv("r-reticulate")
+reticulate::use_condaenv("r-tensorflow")
+tensorflow::tf_config()
 
 library(keras)
 
