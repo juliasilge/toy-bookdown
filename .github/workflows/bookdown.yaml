@@ -8,9 +8,9 @@ name: bookdown
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     env:
-      RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
+      RSPM: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest"
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repo
@@ -21,6 +21,13 @@ jobs:
 
       - name: Install pandoc and pandoc citeproc
         uses: r-lib/actions/setup-pandoc@master
+
+      - name: Install system dependencies
+        run: |
+          while read -r cmd
+          do
+            eval sudo $cmd
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
         
       - name: Query dependencies
         run: |
@@ -51,9 +58,9 @@ jobs:
         run: |
           remotes::install_github('rstudio/reticulate')
           reticulate::install_miniconda()
-          reticulate::conda_create('spacy_condaenv', packages = 'python==3.6.9')
-          tensorflow::install_tensorflow(envname = 'spacy_condaenv')
-          spacyr::spacy_install(envname = 'spacy_condaenv', prompt = FALSE)
+          reticulate::conda_create('r-reticulate', packages = c('python==3.6.9'))
+          keras::install_keras(tensorflow = '2.2', extra_packages = c('IPython', 'requests', 'certifi', 'urllib3'))
+          spacyr::spacy_install(prompt = FALSE)
         shell: Rscript {0}  
           
       - name: Session info
