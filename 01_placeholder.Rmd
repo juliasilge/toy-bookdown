@@ -57,7 +57,7 @@ reticulate::py_discover_config("tensorflow")
 
 ```{r}
 library(keras)
-tf_config()
+tensorflow::tf_config()
 
 dense_model <- keras_model_sequential() %>%
   layer_embedding(
