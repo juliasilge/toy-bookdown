@@ -40,8 +40,8 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ config.os }}-${{ hashFiles('.github/R-version') }}-2-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ config.os }}-${{ hashFiles('.github/R-version') }}-2-
+          key: ubuntu-18.04-${{ hashFiles('.github/R-version') }}-2-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ubuntu-18.04-${{ hashFiles('.github/R-version') }}-2-
 
       - name: Cache bookdown results
         uses: actions/cache@v1
