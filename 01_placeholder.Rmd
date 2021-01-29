@@ -23,3 +23,36 @@ diamonds %>%
 Diamonds are expensive!
 ```
 
+
+```{r}
+library(spacyr)
+spacy_initialize(entity = FALSE)
+
+txt <- "And now for something completely different."
+spacy_parse(txt)
+```
+
+
+```{r}
+library(keras)
+
+dense_model <- keras_model_sequential() %>%
+  layer_embedding(
+    input_dim = max_words + 1,
+    output_dim = 12,
+    input_length = max_length
+  ) %>%
+  layer_flatten() %>%
+  layer_dense(units = 32, activation = "relu") %>%
+  layer_dense(units = 1, activation = "sigmoid")
+
+dense_model
+
+dense_model %>% compile(
+  optimizer = "adam",
+  loss = "binary_crossentropy",
+  metrics = c("accuracy")
+)
+```
+
+
