@@ -34,6 +34,9 @@ spacy_parse(txt)
 
 
 ```{r}
+library(reticulate)
+use_condaenv("r-reticulate")
+
 library(keras)
 
 dense_model <- keras_model_sequential() %>%
