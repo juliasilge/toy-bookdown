@@ -86,10 +86,8 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v1.0.0
         with:
-          # Artifact name
-          name: _site # optional
-          # Destination path
-          path: _site/ # optional
+          name: _site
+          path: _site/
           
       - name: Deploy to GitHub Pages
         uses: Cecilapp/GitHub-Pages-deploy@master
