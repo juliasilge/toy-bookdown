@@ -34,10 +34,15 @@ spacy_parse(txt)
 
 
 ```{r}
-reticulate::use_condaenv("r-tensorflow")
-tensorflow::tf_config()
+reticulate::py_discover_config("keras")
+reticulate::py_discover_config("tensorflow")
+```
 
+
+```{r eval=FALSE}
 library(keras)
+use_condaenv("r-tensorflow")
+tf_config()
 
 dense_model <- keras_model_sequential() %>%
   layer_embedding(
