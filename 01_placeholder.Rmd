@@ -1,5 +1,24 @@
 # placeholder
 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  message = FALSE, 
+  warning = FALSE, 
+  cache = TRUE, 
+  eval = TRUE,
+  tidy = "styler", 
+  fig.width = 8, 
+  fig.height = 5
+  )
+
+options(crayon.enabled = FALSE)
+suppressPackageStartupMessages(library(tidyverse))
+theme_set(theme_minimal())
+```
+
+
 ```{r}
 1 + 2
 ```
@@ -13,9 +32,7 @@ library(tidyverse)
 diamonds %>%
   ggplot(aes(carat, price)) +
   geom_hex() +
-  scale_fill_viridis_b() +
-  theme_minimal()
-
+  scale_fill_viridis_b()
 ```
 
 
@@ -32,7 +49,6 @@ txt <- "And now for something completely different."
 spacy_parse(txt)
 ```
 
-
 ```{r}
 reticulate::py_discover_config("keras")
 reticulate::py_discover_config("tensorflow")
@@ -41,7 +57,7 @@ reticulate::py_discover_config("tensorflow")
 
 ```{r eval=FALSE}
 library(keras)
-use_condaenv("r-tensorflow")
+use_condaenv("spacy_condaenv")
 tf_config()
 
 dense_model <- keras_model_sequential() %>%
@@ -62,5 +78,4 @@ dense_model %>% compile(
   metrics = c("accuracy")
 )
 ```
-
 
