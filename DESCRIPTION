@@ -10,5 +10,6 @@ Imports:
     tidyverse,
     remotes,
     sessioninfo,
+    spacyr,
     reticulate
 Encoding: UTF-8
