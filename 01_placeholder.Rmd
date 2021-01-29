@@ -61,9 +61,9 @@ tensorflow::tf_config()
 
 dense_model <- keras_model_sequential() %>%
   layer_embedding(
-    input_dim = max_words + 1,
+    input_dim = 500,
     output_dim = 12,
-    input_length = max_length
+    input_length = 50
   ) %>%
   layer_flatten() %>%
   layer_dense(units = 32, activation = "relu") %>%
