@@ -9,6 +9,7 @@ Imports:
     stopwords,
     tidytext,
     tidyverse,
+    quanteda,
     remotes,
     sessioninfo,
     spacyr,
