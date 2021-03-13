@@ -1,29 +1,5 @@
 # placeholder
 
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  comment = "#>",
-  message = FALSE, 
-  warning = FALSE, 
-  cache = TRUE, 
-  eval = TRUE,
-  tidy = "styler", 
-  fig.width = 8, 
-  fig.height = 5
-  )
-
-options(crayon.enabled = FALSE)
-suppressPackageStartupMessages(library(tidyverse))
-theme_set(theme_minimal())
-```
-
-
-```{r}
-1 + 2
-```
-
-
 Here is a plot!
 
 ```{r}
@@ -41,16 +17,8 @@ Diamonds are expensive!
 ```
 
 
-```{r}
-library(spacyr)
-spacy_initialize(entity = FALSE)
-
-txt <- "And now for something completely different."
-spacy_parse(txt)
-```
 
 ```{r eval=FALSE}
-reticulate::py_discover_config("keras")
 reticulate::py_discover_config("tensorflow")
 ```
 
@@ -58,23 +26,65 @@ reticulate::py_discover_config("tensorflow")
 ```{r}
 library(keras)
 tensorflow::tf_config()
+```
 
-dense_model <- keras_model_sequential() %>%
-  layer_embedding(
-    input_dim = 500,
-    output_dim = 12,
-    input_length = 50
-  ) %>%
-  layer_flatten() %>%
-  layer_dense(units = 32, activation = "relu") %>%
-  layer_dense(units = 1, activation = "sigmoid")
+```{r include=FALSE}
+library(tidyverse)
 
-dense_model
+kickstarter <- read_csv("data/kickstarter.csv.gz")
+kickstarter
 
-dense_model %>% compile(
-  optimizer = "adam",
-  loss = "binary_crossentropy",
-  metrics = c("accuracy")
+library(tidymodels)
+set.seed(1234)
+kickstarter_split <- kickstarter %>%
+  filter(nchar(blurb) >= 15) %>%
+  initial_split()
+
+kickstarter_train <- training(kickstarter_split)
+kickstarter_test <- testing(kickstarter_split)
+
+library(textrecipes)
+
+max_words <- 20000
+max_length <- 30
+
+kick_rec <- recipe(~blurb, data = kickstarter_train) %>%
+  step_tokenize(blurb) %>%
+  step_tokenfilter(blurb, max_tokens = max_words) %>%
+  step_sequence_onehot(blurb, sequence_length = max_length)
+
+set.seed(234)
+kick_val <- validation_split(kickstarter_train, strata = state)
+
+kick_prep <- prep(kick_rec)
+kick_analysis <- bake(kick_prep, new_data = analysis(kick_val$splits[[1]]),
+                      composition = "matrix")
+
+kick_assess <- bake(kick_prep, new_data = assessment(kick_val$splits[[1]]),
+                    composition = "matrix")
+
+state_analysis <- analysis(kick_val$splits[[1]]) %>% pull(state)
+state_assess <- assessment(kick_val$splits[[1]]) %>% pull(state)
+```
+
+```{r}
+hyperparams <- list(
+  kernel_size1 = c(3, 5, 7),
+  strides1 = c(1, 2)
 )
 ```
 
+```{r, results='hide'}
+library(tfruns)
+runs <- tuning_run(
+  file = "cnn-spec.R",
+  runs_dir = "_tuning",
+  flags = hyperparams
+)
+
+runs_results <- as_tibble(ls_runs())
+```
+
+```{r}
+runs_results
+```

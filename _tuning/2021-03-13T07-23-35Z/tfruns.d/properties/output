@@ -1,0 +1,22 @@
+
+> library(keras)
+
+> FLAGS <- flags(flag_integer("kernel_size1", 5), flag_integer("strides1", 
++     1))
+
+> model <- keras_model_sequential() %>% layer_embedding(input_dim = max_words + 
++     1, output_dim = 16, input_length = max_length) %>% layer_conv_1 .... [TRUNCATED] 
+
+> model %>% compile(optimizer = "adam", loss = "binary_crossentropy", 
++     metrics = c("accuracy"))
+
+> history <- model %>% fit(x = kick_analysis, y = state_analysis, 
++     batch_size = 512, epochs = 10, validation_data = list(kick_assess, 
++         .... [TRUNCATED] 
+
+> plot(history)
+
+> score <- model %>% evaluate(kick_assess, state_assess)
+
+> cat("Test accuracy:", score["accuracy"], "\n")
+Test accuracy: 0.8019477 
