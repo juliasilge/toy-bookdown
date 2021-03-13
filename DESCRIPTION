@@ -11,6 +11,7 @@ Imports:
     tidytext,
     tidyverse,
     quanteda,
+    textrecipes,
     remotes,
     sessioninfo,
     spacyr,
