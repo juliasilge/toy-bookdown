@@ -1,6 +1,6 @@
 # placeholder
 
-Here is a plot!
+\index{plotting}Here is a plot!
 
 ```{r}
 library(tidyverse)
@@ -13,7 +13,7 @@ diamonds %>%
 
 
 ```{block, type = "rmdwarning"}
-Diamonds are expensive!
+\index{diamonds!expensive}Diamonds are expensive!
 ```
 
 
@@ -23,12 +23,12 @@ reticulate::py_discover_config("tensorflow")
 ```
 
 
-```{r}
+```{r eval=FALSE}
 library(keras)
 tensorflow::tf_config()
 ```
 
-```{r include=FALSE}
+```{r eval=FALSE}
 library(tidyverse)
 
 kickstarter <- read_csv("data/kickstarter.csv.gz")
@@ -74,7 +74,7 @@ hyperparams <- list(
 )
 ```
 
-```{r, results='hide'}
+```{r, eval=FALSE, results='hide'}
 library(tfruns)
 runs <- tuning_run(
   file = "cnn-spec.R",
@@ -82,9 +82,8 @@ runs <- tuning_run(
   flags = hyperparams
 )
 
-runs_results <- as_tibble(ls_runs())
+as_tibble(ls_runs())
 ```
 
-```{r}
-runs_results
-```
+I am indexing something about plotting down here\index{plotting!beautiful}.
+
