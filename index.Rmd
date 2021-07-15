@@ -4,9 +4,7 @@ author: "Emil Hvitfeldt and Julia Silge"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: krantz
-biblio-style: apalike
 bibliography: [book.bib]
-csl: taylor-and-francis-chicago-author-date.csl
 link-citations: yes
 links-as-notes: true
 colorlinks: true
