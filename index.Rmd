@@ -5,6 +5,8 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: krantz
 biblio-style: apalike
+bibliography: [book.bib]
+csl: taylor-and-francis-chicago-author-date.csl
 link-citations: yes
 links-as-notes: true
 colorlinks: true
@@ -20,6 +22,8 @@ graphics: yes
 # Preface
 
 Supervised machine learning
+
+[@Silge2017], [@xie2015], [@Feldman2007], [@Schofield16], [@Porter80], [@Lovins68], [@Miller95], [@Arnold17], [@Benoit19], [@boost_c_libraries], [@levithan2012regular], [@Willett06], [@Briscoe13], [@Bender11], [@Bender13], [@Sap19], [@McCulloch15], [@Luhn1960], [@nothman-etal-2018-stop], [@Wickham19], [@Mullen18], [@Gagolewski19], [@Silge16], [@Zou2006], [@Zou2006ACC], [@Huston2010], [@porter2001snowball], [@R-scotus], [@R-hcandersenr], [@R-stopwords], [@Caliskan2016], [@Bolukbasi2016], [@Garg2018], [@Lu2018], [@Speer2017], [@Gonen2019], [@Ethayarajh2019], [@Manning:2008:IIR:1394399], [@Moody2017], [@Boehmke2019], [@Wickham2017], [@Levy2014], [@Sheng2019], [@Vaughan2020], [@Vaughan2018], [@Wagner2016], [@Pennington2014], [@Hvitfeldt2020], [@Selivanov2018], [@Mikolov2013], [@Bojanowski2016], [@Howard2018], [@Peters2018], [@carlini2018secret], [@Fredrikson2014], [@Fredrikson2015], [@spacy2], [@textrecipes], [@konig2002germanic], [@Sugisaki2018], [@ma-etal-2018-state], [@Huang2019], [@Caruana2008], [@Olson2017], [@Weinberger2009], [@appleby2008], [@NIPS2018_7784], [@Forman2008], [@Vantu2016], [@Joachims1998], [@Harman91], [@Chollet2018], [@Boser1992], [@Friedman2010], [@Lex2014], [@James2013], [@Perry2020], [@kim2006], [@Kibriya2005], [@Eibe2006], [@R-googleLanguageR], [@Tang2018], [@R-Matrix], [@Sweeney2000], [@Minaee2020], [@Zhang2015], [@Vosoughi2016], [@shwartzziv2017opening], [@guidotti2018survey], [@lampinen2018oneshot], [@bengio2012practical], [@Gage1994ANA], [@R-reticulate], [@ribeiro2016why], [@Ramineni2018], [@Mohammad13], [@R-wordsalad], [@R-pdftools], [@R-httr], [@Johnson1999], [@Bender2021], [@Golub1970], [@ELMAN1990179], [@Hochreiter1997], [@kim2014], [@Srivastava2014], [@Lewis2014], [@shrikumar2019learning], [@R-LiblineaR], [@Tibshirani1996], [@Breiman1984], [@R-textfeatures], [@R-keras], [@kingma2017adam], [@bender2019rule], [@R-SnowballC], [@R-hunspell], [@R-quanteda], [@R-widyr], [@R-tidymodels], [@Wickham2019], [@R-recipes], [@R-workflows], [@R-rsample], [@R-parsnip], [@R-hardhat], [@R-themis], [@R-dials], [@R-yardstick], [@R-lime], [@Verge2020], [@R-readr], [@R-jiebaR]
 
 ```{block, type = "rmdnote"}
 Text data is important for many domains, from healthcare to marketing to the digital humanities, but specialized approaches are necessary to create features (predictors) for machine learning from language.
