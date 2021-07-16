@@ -148,14 +148,7 @@
       </choose>
       <choose>
         <if type="legal_case" match="none">
-          <choose>
-            <if variable="DOI">
-              <text variable="DOI" prefix="doi:"/>
-            </if>
-            <else>
-              <text variable="URL"/>
-            </else>
-          </choose>
+           <text variable="URL"/>
         </if>
       </choose>
     </group>
