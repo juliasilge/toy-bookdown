@@ -148,6 +148,7 @@
       </choose>
       <choose>
         <if type="legal_case" match="none">
+           <text variable="note"/>
            <text variable="URL"/>
         </if>
       </choose>
